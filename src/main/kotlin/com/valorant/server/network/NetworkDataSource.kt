@@ -18,7 +18,7 @@ class NetworkDataSource(@Autowired private val restTemplate: RestTemplate) : Age
 
   val response: ResponseEntity<AgentList> =  restTemplate.getForEntity<AgentList>("https://valorant-api.com/v1/agents")
     return response.body?.data
-      ?: throw IOException("Could not fetch banks from the network")
+      ?: throw IOException("Could not fetch agents from the network")
   }
 
   override fun retrieveAgent(agentId: String): Agent {
