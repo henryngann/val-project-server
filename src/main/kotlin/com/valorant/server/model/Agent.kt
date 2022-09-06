@@ -21,6 +21,7 @@ data class Agent(
    val description: String?,
   @JsonProperty("uuid")
    val uuid: String?,
+
   ) {
 
 }

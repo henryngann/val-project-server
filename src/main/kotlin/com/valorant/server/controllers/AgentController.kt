@@ -14,9 +14,9 @@ class AgentController(private val service: AgentService) {
     return service.getAgents()
   };
 
-  @GetMapping("/{agentId}")
-  fun getAgent(@PathVariable uuid: String): Agent {
-    return service.getAgent(uuid)
+  @GetMapping("/{uuId}")
+  fun getAgent(@PathVariable uuId: String): Agent {
+    return service.getAgent(uuId)
   }
 
 }

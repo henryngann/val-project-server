@@ -16,7 +16,7 @@ class NetworkDataSource(@Autowired private val restTemplate: RestTemplate) : Age
 
   override fun retrieveAgents(): Collection<Agent> {
 
-  val response: ResponseEntity<AgentList> =  restTemplate.getForEntity<AgentList>("https://valorant-api.com/v1/agents")
+  val response: ResponseEntity<AgentList> =  restTemplate.getForEntity<AgentList>("https://valorant-api.com/v1/agents?isPlayableCharacter=true")
     return response.body?.data
       ?: throw IOException("Could not fetch agents from the network")
   }
