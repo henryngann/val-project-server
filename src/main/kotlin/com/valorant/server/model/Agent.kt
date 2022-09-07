@@ -15,13 +15,35 @@ import org.springframework.stereotype.Component
 //Data Class -> Main purpose is to hold data.
 
 data class Agent(
+  @JsonProperty("uuid")
+  val uuid: String?,
   @JsonProperty("displayName")
    val displayName: String?,
-  @JsonProperty("trust")
+  @JsonProperty("description")
    val description: String?,
-  @JsonProperty("uuid")
-   val uuid: String?,
+  @JsonProperty("displayIcon")
+  val displayIcon: String?,
+  @JsonProperty("fullPortrait")
+  val fullPortrait: String?,
+  @JsonProperty("abilities")
+  val abilities: Collection<AgentAbilities?>,
+  @JsonProperty("backgroundGradientColors")
+  val backgroundGradientColors: Array<String?>
 
   ) {
+  override fun equals(other: Any?): Boolean {
+    if (this === other) return true
+    if (javaClass != other?.javaClass) return false
+
+    other as Agent
+
+    if (!backgroundGradientColors.contentEquals(other.backgroundGradientColors)) return false
+
+    return true
+  }
+
+  override fun hashCode(): Int {
+    return backgroundGradientColors.contentHashCode()
+  }
 
 }

@@ -11,13 +11,15 @@ import org.springframework.stereotype.Repository
 class MockAgentDataSource : AgentDataSource {
 
   val agents = listOf(
-    Agent(displayName = "Yoru", description = "Annoying",uuid = "1"),
     Agent(
-      displayName = "Sage",
-      description = "Heal",
-      uuid = "2"
-    ),
-    Agent(displayName = "Sova", description = "Archer", uuid = "3")
+      displayName = "Yoru",
+      description = "Annoying",
+      uuid = "1",
+      displayIcon = "Icon",
+      fullPortrait = "port", abilities = emptyList(), backgroundGradientColors = arrayOf("1", "2")
+    )
+
+
   )
 
   override fun retrieveAgents(): Collection<Agent> {
